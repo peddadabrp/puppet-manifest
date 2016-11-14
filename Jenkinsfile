@@ -4,7 +4,9 @@ node ('puppet-master'){
       
       checkout scm
       
-      sh 'yes | cp -rf example /etc/puppet/modules/ && chown -R root:root /etc/puppet/modules/example'
+      sh 'echo jenkins | sudo yes | cp -rf example /etc/puppet/modules/ && echo jenkins | sudo chown -R root:root /etc/puppet/modules/example'
+      
+      step([$class: 'WsCleanup'])
         
    }
    
